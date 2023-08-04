@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tauri App</title>
+    <script type="module" src="/src/main.ts" defer></script>
+    <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    html, body {
+      height: 100vh;
+    }
+    main {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    textarea {
+      flex: 1;
+      margin: 1rem 1rem 0 1rem;
+    }
+    button {
+      margin: 1rem;
+    }
+    </style>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const button = document.querySelector('button');
+        const textarea = document.querySelector('textarea');
+        button.addEventListener('click', () => {
+          textarea.select();
+          document.execCommand('copy');
+          textarea.value = '';
+        });
+      });
+      // set focus to textarea when the window is active.
+      window.addEventListener('focus', () => {
+        document.querySelector('textarea').focus();
+      });
+    </script>
+  </head>
+
+  <body>
+    <main>
+      <textarea></textarea>
+      <button>Copy</button>
+    </div>
+  </body>
+</html>
